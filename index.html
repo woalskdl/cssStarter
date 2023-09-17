@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css"> <!-- 브라우저별 기본 CSS 초기화 -->
   <link rel="stylesheet" href="css/main.css">
   <link rel="icon" href="favicon.png"> <!-- 탭 제목 옆에 표시되는 아이콘 -->
-  <script src="./js/main.js"></script>
+  <script defer src="./js/main.js"></script>  <!-- (HTML 구조가 로드된 후 javascript를 실행하겠다.) -->
 </head>
 
 <body>
@@ -25,5 +25,50 @@
       <li>4</li>
     </ul>
   </div>
+
+  <!-- inline : 글자를 만들기 위한 요소들 -->
+  <span>Span은 본질적으로 아무것도 나타내지 않는 </span>
+  <span>콘텐츠 영역을 설정하기 위한 태그이다. </span>
+  <span>가로로 쌓이며, 콘텐츠 크기만큼 크기가 자동으로 줄어든다.</span>
+  <br> <span>br 또한 inline</span>
+  <span style="width: 100px; height: 100px;">폭과 높이는 적용되지 않는다.</span>
+  <br>
+  <span style="padding: 10px 10px;">내,외부 여백은 </span><span style="margin: 10px 10px;">가로만 적용된다.</span>
+  <span><div>글자 안에는 상자를 넣을 수 없다.</div></span>
+
+  <img src="images/logo.png" alt="inline">
+
+  <a href="https://naver.com" target="_blank">a태그도 inline (anchor) / target 속성으로 어떻게 열릴지 제어</a>
+  <br>
+  <input type="text" placeholder="input은 inline이자 block"/>
+  <br>
+  <label>
+    <input type="checkbox"> 이렇게 해야
+  </label>
+  <label>
+    <input type="checkbox"> 라벨도 체크
+  </label>
+
+  <!-- block : 상자(레이아웃)을 만들기 위한 요소들 -->
+  <div>대표적인 블록 요소. 본질적으로 아무것도 나타내지 않는다.</div>
+  <div>수직으로 쌓인다.</div>
+  <div>가로는 최대한 늘어나며, 새로는 최대한 줄어든다.</div>
+  <div><span>block 안에는 inline 요소를 넣을 수 있다.</span></div>
+
+  <p>문장을 의미하는 요소 Paragraph - block</p>
+
+  <ul>
+    <li>ul은 순서가 필요없는 목록의 집합</li>
+    <li>순서가 필요한건 ol / 별로 안씀</li>
+    <li>그리고 block</li>
+    <li>목록 내 각 항목은 li</li>
+  </ul>
+
+  <!-- 여기까지 -->
+
+  <p title="타이틀이란 마우스를 올렸을때 나오는 것">마우스를 올려보아라</p>
+
+  <p data-p-data="이것은 데이터이다." id="dataElement">태그에 데이터 달기</p>
+
 </body>
 </html>

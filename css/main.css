@@ -1,5 +1,11 @@
 div {
-  width: 200px;
-  height: 100px;
+  /* width: 200px; */
+  /* height: 100px; */
 	background-color: orange;
+  border: #000 1px solid;
+  margin: 10px 10px;
+}
+span {
+  background-color: aquamarine;
+  margin: 10px 10px;
 }
