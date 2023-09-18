@@ -9,3 +9,72 @@ span {
   background-color: aquamarine;
   margin: 10px 10px;
 }
+
+/* 선택자 */
+/* 인접 형제 선택자 - 선택자 첫번째 다음 형제 요소 하나를 선택 */
+.orange + li {
+  /* orange 클래스 요소의 다음 형제 요소 하나를 선택 */
+  color: red;
+}
+
+/* 일반 형제 선택자 - 선택자 첫번째 다음 형제 모두 선택 */
+.orange ~ li {
+  /* orange 클래스 요소 뒤에오는 모든 형제 요소 선택 */
+  color: red;
+}
+
+/* 가상 클래스 */
+.orange:hover {
+  color: black;
+  /* 종류 */
+  /* active : 마우스를 클릭하고 있는 동안 */
+  /* focus : 포커스하는 동안 (포커스가 가능한 요소에 대해 - div 같은거는 attribute에 tabindex="-1" 을 넣으면 포커스 가능) */
+}
+
+.checkList {
+  background: #f2f2f2;
+}
+
+/* 해당 선택자가 형제 요소 중 첫째라면 선택 (그 중 첫번째를 선택하는게 아님) */
+.checkList span:first-child {
+  color: red;
+}
+
+/* 해당 선택자가 형제 요소 중 막내라면 선택 (그 중 막내를 선택하는게 아님) */
+.checkList div:last-child {
+  color: red;
+}
+
+/* 선택자 형제 요소 중 n째라면 선택 - 배수 및 짝수 홀수 가능 */
+.checkList li:nth-child(3n + 1) {
+  text-decoration: underline;
+}
+
+/* 선택자 형제 요소 중 n째라면 선택 - 몇번째부터 선택 가능  */
+.checkList li:nth-child(n + 2) {
+  font-weight: 1000;
+}
+
+/* 선택자가 아닌 요소 선택  */
+.checkList li:not(.check) {
+  background: #000;
+}
+
+/* 가상 요소 선택자 */
+/* 선택자 요소 내부 앞에 내용 삽입 */
+.checkList::before {
+  content: '리스트 앞 입니다.';
+}
+
+/* 선택자 요소 내부 뒤에 내용 삽입 */
+.checkList::after {
+  content: '리스트 뒤 입니다.';
+}
+
+/* 속성 선택자 */
+.checkList [disabled] {
+  background: royalblue;
+}
+
+/* ================================== */
+/* 상속되는 속성은 대부분 글자와 관련된 요소 */
