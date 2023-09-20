@@ -88,3 +88,24 @@ div.something {
   width: 1vw; /* 뷰포트 가로 너비의 백분율 */
   width: 1vh; /* 뷰포트 세로 너비의 백분율 */
 }
+
+/* 여백 */
+/* margin : 외부 여백 */
+div.margin {
+  margin: 10px 20px; /* 상하, 좌우 */
+  margin: 10px 20px 30px; /* 상 좌우 하 (위에서부터 아래로) */
+  margin: 10px 20px 30px 40px; /* 상 우 하 좌 (시계방향) */
+}
+
+/* padding : 내부 여백 - 요소 자체의 크기도 늘어난다. */
+
+/* border : 선 두께 선 종류 선 색상 - 이 순서로 입력하는게 좋다. / 요소의 크기도 늘어난다. */
+div.border {
+  border: 1px 2px 1px solid black transparent;  /* 두께, 종류, 색상도 상하좌우 동일하게 입력 가능 / transparent 투명 */
+}
+
+/* box-sizing*/
+div.box-sizing {
+  box-sizing: border-box; /* 명시된 가로 세로 너비가 테두리를 고려하여 적용 (테두리에 의해 요소가 커지지 않도록) */
+  box-sizing: content-box; /* 명시된 가로 세로 너비가 내용을 고려하여 적용 (default) */
+}
