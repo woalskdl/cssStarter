@@ -109,3 +109,46 @@ div.box-sizing {
   box-sizing: border-box; /* 명시된 가로 세로 너비가 테두리를 고려하여 적용 (테두리에 의해 요소가 커지지 않도록) */
   box-sizing: content-box; /* 명시된 가로 세로 너비가 내용을 고려하여 적용 (default) */
 }
+
+/* overflow - default : visible*/
+div.overflow {
+  overflow: hidden; /* 숨기기 */
+  overflow: scroll; /* 무조건 스크롤 */
+  overflow: auto;   /* 넘치면 스크롤 */
+}
+
+/* display */
+div.display {
+  display: inline-block;  /* inline(글자)이지만 가로, 세로 값을 지정할 수 있음 */
+  display: flex;  /* 1차원 레이아웃 - 수직 정렬 */
+  display: grid;  /* 2차원 레이아웃 */
+}
+
+/* font-family - 글꼴 후보 지정, 글꼴 계열은 필수 지정 > 후보 중 가능한 가장 첫번째 글꼴 사용 (브라우저 환경에 따라) */
+/* 폰트명에 띄워쓰기가 있으면 ""로 감싸기 */
+
+/* 배치 - absolute, fixed 가 지정된 요소는 display 속성이 block으로 변경된다. */
+div.position {
+  position: static;   /* 기준 없음 - default */
+  position: relative; /* 요소 자신을 기준 
+  - position 설정하지 않았다면 자기가 원래 있었던 곳을 기준 
+  > 실제로 요소는 원래 위치에 있지만, 보여지는 것만 이동 
+  > 위치를 조정하는데 쓰이기보단 absolute의 부모로 지정하는데 많이 사용 */
+  position: absolute; /* 위치 상 부모 요소 기준 
+  - 부모 요소를 기준으로 하기 때문에 위치가 부모 요소를 기준으로 하며 붕뜨는 개념으로 자리잡음. 
+  > 형제 요소와의 위치 상호작용이 무너진다. 
+  > 위치 상 부모 요소이며, position을 가지는 부모 요소가 기준이다. 따라서 실제 HTML구조 상 부모가 아닐 수도 있다.
+  > 부모 요소에 position : relative 가 있는 것을 기준 / static(default) 값은 기준이 없기 때문에 위치가 없는 것 */
+  position: fixed;    /* 뷰포트 기준 - 헤더, 툴바 등을 표현하는데 많이 사용됨. 스크롤과 무관하게 고정 */
+
+  /* 기준을 잡은 뒤 위치값을 설정한다. 음수도 사용 가능 */
+  top: auto;      /* 위에서부터 얼마나 떨어졌나 */
+  bottom: auto;   /* 아래에서부터 얼마나 떨어졌나 */
+  left: auto;     /* 왼쪽에서부터 얼마나 떨어졌나 */
+  right: auto;    /* 오른쪽에서부터 얼마나 떨어졌나 */
+  z-index: auto;
+  /* 요소 쌓임 순서 */
+  /* 1. 요소에 position 속상 값이 있는 경우 더 위에 쌓인다. 기존 static 제외 */
+  /* 2. position 속성값과 z-index가 같으면 HTML 구조 상 다음에 있는 요소가 위에 쌓임 */
+  /* z-index가 있어도 position값이 없으면 적용 안됨 */
+}
