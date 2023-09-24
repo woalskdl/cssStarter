@@ -1,11 +1,11 @@
-div {
+div.div {
   /* width: 200px; */
   /* height: 100px; */
 	background-color: orange;
   border: #000 1px solid;
   margin: 10px 10px;
 }
-span {
+span.span {
   background-color: aquamarine;
   margin: 10px 10px;
 }
@@ -151,4 +151,98 @@ div.position {
   /* 1. 요소에 position 속상 값이 있는 경우 더 위에 쌓인다. 기존 static 제외 */
   /* 2. position 속성값과 z-index가 같으면 HTML 구조 상 다음에 있는 요소가 위에 쌓임 */
   /* z-index가 있어도 position값이 없으면 적용 안됨 */
+}
+
+h6 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 20px;
+}
+
+/* flex - 1차원 레이아웃 */
+div.flex {
+  display: flex;  /* 블록 요소와 같이 Flex container 정의 >> 현재 요소는 flex container가 된다. */
+  /* display: inline-flex; */ /* inline 요소(가로사이즈가 줄어들려고 함)와 같이 Flex container 정의 */
+
+  /* flex-direction: row; */  /* (default) 행축 (좌 > 우) - column 값은 열축 (위 > 아래) 이지만 굳이 flex를 정의한 이상 잘 사용하지 않는다. */
+  /* flex-direction: row-reverse; */ /* 거꾸로 */
+  
+  /* flex-items 묶음(줄 바꿈) 여부 */
+  /* flex-wrap: nowrap; */  /* (default) 묶음(줄 바꿈) 없음 > width가 넘치면 자식 요소 가로가 수축됨 */
+  flex-wrap: wrap;    /* 여러 줄로 묶음 */
+
+  /* 주 축의 정렬 방법 */
+  /* justify-content: flex-start; */  /* (default) Flex Items를 시작점으로 정렬 */
+  /* justify-content: flex-end; */    /* Flex Items를 끝점으로 정렬 */
+  justify-content: center;     /* Flex Items를 가운데 정렬 */
+  /* justify-content: space-between; */ /* 각 아이템 사이를 균등하게 정렬 */
+  /* justify-content: space-around; */  /* 각 아이템의 외부 여백을 균등하게 정렬 */
+
+  /* 교차 축의 여러 줄 정렬 방법 (일반적으로 수직) - 한 줄일때는 동작하지 않는다. */
+  align-content: stretch; /* (default) 아이템을 시작점으로 정렬 - 수직 높이 선언이 없으면 세로가 최대한 늘어남 
+  / 이 외의 값은 justify-content와 between, around 빼고 동일 */
+
+  /* 교차 축의 한 줄 정렬 방법 - 보통 여러 줄을 관리하지 않아서 이를 더 많이 사용한다. */
+  align-items: stretch; /* (default) 아이템을 교차 축으로 늘림 
+  / 이 외의 값은 justify-content와 between, around 빼고 동일 */
+
+  width: 400px;
+  height: 500px;
+  background-color: royalblue;
+}
+/* flex container의 아이템들 */
+div.flex-item {
+  /* 아이템의 증가 너비 비율 - Flex Container 너비에 따라 증가 비율 적용 */
+  flex-grow: 1; /* (default = 0) 아이템들이 각각 동일한 비율로 늘어난다 */
+  /* 아이템의 감소 너비 비율 - Flex Container 너비에 따라 감소 비율 적용 */
+  flex-shrink: 1; /* (default) - 0으로 하면 container 너비에 따라 줄어들지 않는다. */
+  /* 아이템 공간 배분 전 기본 너비 */
+  flex-basis: 0;  /* (default = auto : 요소의 Content 너비) 늘어나는 기본값 잡기 */
+  /* 정렬 순서 */
+  order: 0; /* (default) 순서 없음 / 숫자가 작을수록 먼저 */
+
+  width: 100px;
+  height: 100px;
+  border: 3px dashed red;
+  background-color: orange;
+}
+div.flex-item:nth-child(3) {
+  flex-grow: 2; /* 다른 아이템의 2배 */
+}
+
+/* 전환 */
+div.transition {
+  /* 요소의 전환(시작과 끝) 효과를 지정하는 단축 속성 */
+  transition: width 1s .5s, background-color 2s; /* 속성명 지속시간(필수) 타이밍함수 대기시간 */
+  /* transition-property: all; */ /* (default) 모든 속성에 적용 - 위에서 색깔은 바로 변함 */
+  /* transition-duration : 0s */ /* (default) 지속시간 */
+  transition-timing-function: ease; /* (default) 느리게 - 빠르게 - 느리게 / 전환 효과의 타이밍 함수를 지정 
+  / 굉장히 다양하므로 필요하면 easing functions 구글링, mdn, 다양한 툴도 있음 */
+  /* transition-delay: .5s; */ /* 대기시간 - transition에 duration 뒤에 시간 또 넣으면 그게 대기시간 */
+
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+}
+
+div.transition:hover {
+  width: 300px;
+  background-color: royalblue;
+}
+
+/* 변환 */
+div.transform-container {
+  width: 100px;
+  height: 100px;
+  background-color: royalblue;
+}
+
+div.transform {
+  /* 원근법 이동 크기 회전 기울임 */
+  transform: rotate(45deg) scale(1.3) skewX(45deg);  
+  /* translate(이동), scale(크기), rotate(회전), skew(기울임 - X, Y 붙여서 씀), perspective (원근거리 - 3D / 제일 앞에 써야함) */
+
+  width: 100px;
+  height: 100px;
+  background-color: orange;
 }
